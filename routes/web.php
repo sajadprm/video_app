@@ -15,3 +15,6 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/',[IndexController::class,'Index']);
+Route::get('/upload',function (){
+    return view('Videos.create');
+});
