@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,4 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/',[IndexController::class,'Index']);
-Route::get('/upload',function (){
-    return view('Videos.create');
-});
+Route::get('/video/create',[VideoController::class,'create']);
