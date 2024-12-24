@@ -17,4 +17,6 @@ public function getCreatedAtAttribute($value)
 {
     return (new Verta($value))->formatDifference();
 }
+
+protected $fillable=['name','length','url','thumbnail','slug','description'];
 }
