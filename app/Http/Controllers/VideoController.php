@@ -20,7 +20,15 @@ class VideoController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title'=>'required',
+            'length'=>'required|integer',
+            'slug'=>'required|unique:videos,slug',
+            'url'=>'required|url',
+            'thumbnail'=>'required'
+        ]);
         try {
+
             $video=Video::create(['name'=>$request->title,'length' => $request->length,'url' => $request->url,
                 'slug'=>$request->slug,'description' => $request->description,'thumbnail' => $request->thumbnail]);
             if ($video)

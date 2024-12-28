@@ -2,38 +2,39 @@
 @section('content')
 <div id="upload">
     <div class="row">
+     <x-validation></x-validation>
         <!-- upload -->
         <div class="col-md-8">
-            <h1 class="page-title"><span>آپلود</span> ویدیو</h1>
+            <h1 class="page-title"><span>@lang('videos.pageTitle1')</span> @lang('videos.pageTitle2')</h1>
             <form method="post" action="{{route('video.store')}}">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
-                        <label>عنوان</label>
-                        <input type="text" class="form-control" placeholder="عنوان" name="title">
+                        <label>@lang('videos.title')</label>
+                        <input type="text" class="form-control" placeholder="@lang('videos.title')" name="title">
                     </div>
                     <div class="col-md-6">
-                        <label>مدت زمان</label>
-                        <input type="text" class="form-control" placeholder="مدت زمان" name="length">
+                        <label>@lang('videos.length')</label>
+                        <input type="text" class="form-control" placeholder="@lang('videos.length')" name="length">
                     </div>
                     <div class="col-md-6">
-                        <label>نام یکتا</label>
-                        <input type="text" class="form-control" placeholder="نام یکتا" name="slug">
+                        <label>@lang('videos.slug')</label>
+                        <input type="text" class="form-control" placeholder="@lang('videos.slug')" name="slug">
                     </div>
                     <div class="col-md-6">
-                        <label>آدرس ویدیو</label>
-                        <input type="text" class="form-control" placeholder="آدرس ویدیو" name="url">
+                        <label>@lang('videos.url')</label>
+                        <input type="text" class="form-control" placeholder="@lang('videos.url')" name="url">
                     </div>
                     <div class="col-md-6">
-                        <label>تصویر بند‌انگشتی</label>
-                        <input type="text" class="form-control" placeholder="تصویر بند انگشتی" name="thumbnail">
+                        <label>@lang('videos.thumbnail')</label>
+                        <input type="text" class="form-control" placeholder="@lang('videos.thumbnail')" name="thumbnail">
                     </div>
                     <div class="col-md-12">
-                        <label>توضیحات</label>
-                        <textarea class="form-control" rows="4" placeholder="توضیح" name="description"> </textarea>
+                        <label>@lang('videos.description')</label>
+                        <textarea class="form-control" rows="4" placeholder="@lang('videos.description')" name="description"> </textarea>
                     </div>
                     <div class="col-md-2">
-                        <button type="submit" id="contact_submit" class="btn btn-dm">ذخیره</button>
+                        <button type="submit" id="contact_submit" class="btn btn-dm">@lang('videos.save')</button>
                     </div>
                 </div>
             </form>
