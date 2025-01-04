@@ -19,4 +19,15 @@ public function getCreatedAtAttribute($value)
 }
 
 protected $fillable=['name','length','url','thumbnail','slug','description'];
+    public function relatedVideos(int $count=4)
+    {
+        return  Video::all()->random($count);
+    }
+
+   public function getRouteKeyName()
+   {
+         return 'slug';
+   }
+
 }
+
