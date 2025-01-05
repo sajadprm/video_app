@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
-public function getLengthAttribute($value)
+
+    protected $guarded=[];
+public function getLengthForHumanAttribute()
 {
-     return gmdate('i:s',$value);
+     return gmdate('i:s',$this->value);
 }
 
 public function getCreatedAtAttribute($value)

@@ -6,32 +6,32 @@
         <!-- upload -->
         <div class="col-md-8">
             <h1 class="page-title"><span>@lang('videos.pageTitle1')</span> @lang('videos.pageTitle2')</h1>
-            <form method="post" action="{{route('video.store')}}">
+            <form method="post" action="{{route('video.update',$video->slug)}}">
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
                         <label>@lang('videos.title')</label>
-                        <input type="text" class="form-control" placeholder="@lang('videos.title')" name="name" value="{{old('name')}}">
+                        <input type="text" class="form-control" placeholder="@lang('videos.title')" name="name" value="{{$video->name}}">
                     </div>
                     <div class="col-md-6">
                         <label>@lang('videos.length')</label>
-                        <input type="text" class="form-control" placeholder="@lang('videos.length')" name="length" value="{{old('length')}}">
+                        <input type="text" class="form-control" placeholder="@lang('videos.length')" name="length" value="{{$video->length}}">
                     </div>
                     <div class="col-md-6">
                         <label>@lang('videos.slug')</label>
-                        <input type="text" class="form-control" placeholder="@lang('videos.slug')" name="slug" value="{{old('slug')}}">
+                        <input type="text" class="form-control" placeholder="@lang('videos.slug')" name="slug" value="{{$video->slug}}">
                     </div>
                     <div class="col-md-6">
                         <label>@lang('videos.url')</label>
-                        <input type="text" class="form-control" placeholder="@lang('videos.url')" name="url" value="{{old('url')}}">
+                        <input type="text" class="form-control" placeholder="@lang('videos.url')" name="url" value="{{$video->url}}">
                     </div>
                     <div class="col-md-6">
                         <label>@lang('videos.thumbnail')</label>
-                        <input type="text" class="form-control" placeholder="@lang('videos.thumbnail')" name="thumbnail" value="{{old('thumbnail')}}">
+                        <input type="text" class="form-control" placeholder="@lang('videos.thumbnail')" name="thumbnail" value="{{$video->thumbnail}}">
                     </div>
                     <div class="col-md-12">
                         <label>@lang('videos.description')</label>
-                        <textarea class="form-control" rows="4" placeholder="@lang('videos.description')" name="description"> {{old('description')}}</textarea>
+                        <textarea class="form-control" rows="4" placeholder="@lang('videos.description')" name="description"> {{$video->description}}</textarea>
                     </div>
                     <div class="col-md-2">
                         <button type="submit" id="contact_submit" class="btn btn-dm">@lang('videos.save')</button>

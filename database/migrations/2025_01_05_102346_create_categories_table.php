@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('videos', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->string('slug')->unique();
-            $table->text('description')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('description',128)->nullable();
+            $table->timestamps();
         });
     }
 
@@ -22,9 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('videos', function (Blueprint $table) {
-            $table->drop('slug');
-            $table->drop('description');
-        });
+        Schema::dropIfExists('categories');
     }
 };

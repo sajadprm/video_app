@@ -23,7 +23,7 @@ class StoreVideoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title'=>'required',
+            'name'=>'required',
             'length'=>'required|integer',
             'slug'=>'required|unique:videos,slug|alpha_dash:',
             'url'=>'required|url',
