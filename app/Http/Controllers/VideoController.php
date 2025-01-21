@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreVideoRequest;
 use App\Http\Requests\UpdateVideoRequesr;
 use App\Http\Requests\UpdateVideoRequest;
+use App\Models\Category;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class VideoController extends Controller
 
     public function create()
     {
-        return view('Videos.create');
+        $categories=Category::all();
+        return view('Videos.create',compact('categories'));
     }
 
 
@@ -26,8 +28,8 @@ class VideoController extends Controller
 
         try {
 
-            $video = Video::create(['name' => $request->title, 'length' => $request->length, 'url' => $request->url,
-                'slug' => $request->slug, 'description' => $request->description, 'thumbnail' => $request->thumbnail]);
+            $video = Video::create(['name' => $request->name, 'length' => $request->length, 'url' => $request->url,
+                'slug' => $request->slug, 'description' => $request->description, 'thumbnail' => $request->thumbnail,'category_id'=>$request->category]);
             if ($video) {
                 return redirect()->route('index')->with(['alert' => 'ویدیو مورد نظر با موفقیت ذخیره شد']);
             }
@@ -52,12 +54,14 @@ class VideoController extends Controller
 
     public function edit(Video $video)
     {
-        return view('Videos.edit',compact('video'));
+        $categories=Category::all();
+        return view('Videos.edit',compact('video','categories'));
     }
 
 
     public function update(UpdateVideoRequest $request , Video $video)
     {
+
 
         $video->update($request->all());
         return redirect()->route('video.show',$video->slug)->with('alert',__('messages.videoEdited'));

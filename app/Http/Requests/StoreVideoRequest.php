@@ -27,7 +27,8 @@ class StoreVideoRequest extends FormRequest
             'length'=>'required|integer',
             'slug'=>'required|unique:videos,slug|alpha_dash:',
             'url'=>'required|url',
-            'thumbnail'=>'required'
+            'thumbnail'=>'required',
+            'category_id'=>'exists:categories,id'
         ];
 
     }

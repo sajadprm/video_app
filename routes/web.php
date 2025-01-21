@@ -21,3 +21,4 @@ Route::post('/video/store',[VideoController::class,'store'])->name('video.store'
 Route::get('/video/{video}',[VideoController::class,'show'])->name('video.show');
 Route::get('/video/{video}/edit',[VideoController::class,'edit'])->name('video.edit');
 Route::post('/video/{video}',[VideoController::class,'update'])->name('video.update');
+Route::get('/category/{category:slug}/videos',[\App\Http\Controllers\CategoryVideo::class,'index'])->name('category.videos.index');

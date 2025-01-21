@@ -1,0 +1,16 @@
+@extends('layout');
+@section('content')
+
+    <h1 class="new-video-title"><i class="fa fa-bolt"></i> {{$title}}</h1>
+    <div class="row">
+
+        @foreach($videos as $video)
+            <x-box-video :video="$video"  />
+        @endforeach
+    </div>
+
+   <div class="text-center">
+       {{ $videos->links() }}
+   </div>
+
+@endsection

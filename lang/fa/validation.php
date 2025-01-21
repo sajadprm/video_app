@@ -5,6 +5,8 @@ return [
     'integer' => ' :attribute باید عددی باشد',
     'unique' => ' :attribute قبلا ایجاد شده است',
     'url' => ' :attribute باید یک آدرس لینک معتبر باشد',
+    'exists' => ':attribute انتخاب شده معتبر نیست',
+
 
 
     'attributes'=>[
@@ -12,7 +14,8 @@ return [
         'length'=>'طول مدت ویدیو',
         'slug'=>'عنوان یکتای ویدیو',
         'url'=>'آدرس ویدیو',
-        'thumbnail'=>'آدرس تصویر ویدیو'
+        'thumbnail'=>'آدرس تصویر ویدیو',
+        'category_id'=>'دسته بندی ویدیو'
     ]
 
 

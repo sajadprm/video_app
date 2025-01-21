@@ -29,6 +29,14 @@
                         <label>@lang('videos.thumbnail')</label>
                         <input type="text" class="form-control" placeholder="@lang('videos.thumbnail')" name="thumbnail" value="{{old('thumbnail')}}">
                     </div>
+                    <div class="col-md-6">
+                        <label>@lang('videos.categories')</label>
+                        <select name="category" id="category" class="form-control">
+                            @foreach($categories as $category)
+                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="col-md-12">
                         <label>@lang('videos.description')</label>
                         <textarea class="form-control" rows="4" placeholder="@lang('videos.description')" name="description"> {{old('description')}}</textarea>
