@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\CheckVerifyEmail;
 use App\Http\Requests\StoreVideoRequest;
 use App\Http\Requests\UpdateVideoRequesr;
 use App\Http\Requests\UpdateVideoRequest;
@@ -11,6 +12,9 @@ use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
+
+
+
     public function index()
     {
 
@@ -28,8 +32,9 @@ class VideoController extends Controller
 
         try {
 
-            $video = Video::create(['name' => $request->name, 'length' => $request->length, 'url' => $request->url,
-                'slug' => $request->slug, 'description' => $request->description, 'thumbnail' => $request->thumbnail,'category_id'=>$request->category]);
+
+            $video=$request->user()->videos()->create($request->all());
+
             if ($video) {
                 return redirect()->route('index')->with(['alert' => 'ویدیو مورد نظر با موفقیت ذخیره شد']);
             }

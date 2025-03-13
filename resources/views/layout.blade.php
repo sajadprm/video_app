@@ -8,14 +8,8 @@
     <meta name="author" content="Rabie Elkheir">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap Core CSS -->
-    <!-- Owl Carousel Assets -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css" />
-
-    <!--Google Fonts-->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Raleway:400,500,700|Roboto:300,400,500,700,900|Ubuntu:300,300i,400,400i,500,500i,700"
-        rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Raleway:400,500,700|Roboto:300,400,500,700,900|Ubuntu:300,300i,400,400i,500,500i,700" rel="stylesheet">
     <!-- Main CSS -->
     <!-- Responsive CSS -->
     @vite(['resources/css/app.css'])
@@ -60,24 +54,31 @@
             <div class="col-lg-2 col-md-2 col-sm-4 hidden-xs hidden-sm">
                 <!--  -->
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs hidden-sm">
-                <div class="dropdown">
-                    <a data-toggle="dropdown" href="#" class="user-area">
-                        <div class="thumb"><img
-                                src="https://s.gravatar.com/avatar/dfca86228f1ed5f0554827a8d907172a?s=80" alt="">
-                        </div>
-                        <h2>مهرداد سامی</h2>
-                        <h3>25 اشتراک</h3>
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu account-menu">
-                        <li><a href="#"><i class="fa fa-edit color-1"></i>ویرایش پروفایل</a></li>
-                        <li><a href="#"><i class="fa fa-video-camera color-2"></i>اضافه کردن فیلم</a></li>
-                        <li><a href="#"><i class="fa fa-star color-3"></i>برگزیده</a></li>
-                        <li><a href="#"><i class="fa fa-sign-out color-4"></i>خروج</a></li>
-                    </ul>
+            @auth
+                <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs hidden-sm">
+                    <div class="dropdown">
+                        <a data-toggle="dropdown" href="#" class="user-area">
+                            <div class="thumb"><img
+                                    src="{{auth()->user()->gravatar}}" alt="">
+                            </div>
+                            <h2>{{auth()->user()->name}}</h2>
+                            <h3>25 اشتراک</h3>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu account-menu">
+                            <li><a href="#"><i class="fa fa-edit color-1"></i>ویرایش پروفایل</a></li>
+                            <li><a href="#"><i class="fa fa-video-camera color-2"></i>اضافه کردن فیلم</a></li>
+                            <li><a href="#"><i class="fa fa-star color-3"></i>برگزیده</a></li>
+                            <li><a href="{{route('logout')}}"><i class="fa fa-sign-out color-4"></i>خروج</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            @endauth
+            @guest()
+                <a class="btn btn-primary" href="{{route('register.create')}}">ثبت نام</a>
+                <a class="btn btn-danger" href="{{route('login')}}">ورود</a>
+            @endguest
+
         </div><!-- // row -->
     </div><!-- // container-full -->
 </header><!-- // header -->
@@ -97,8 +98,15 @@
 
 
 </div>
-
-
+<script src="{{asset('js/jquery-3.7.1.min.js')}}"></script>
+<script src="{{asset('js/bootstrap.js')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/grid-blog.min.js')}}"></script>
+<script src="{{asset('js/imagesloaded.pkgd.min.js')}}"></script>
+<script src="{{asset('js/smooth-scroll.min.js')}}"></script>
+<script src="{{asset('js/custom.js')}}"></script>
+<script src="{{asset('js/custom.js')}}"></script>
+<script src="{{asset('js/jquery.sticky-kit.min.js')}}"></script>
 @vite(['resources/js/app.js'])
 </body>
 

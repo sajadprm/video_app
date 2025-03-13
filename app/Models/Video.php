@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Video extends Model
 {
+    use HasFactory;
 
     protected $guarded=[];
 public function getLengthForHumanAttribute()
@@ -32,6 +33,8 @@ protected $fillable=['name','length','url','thumbnail','slug','description','cat
    }
 
 
+
+
    public function category()
    {
         return $this->belongsTo(Category::class,'category_id');
@@ -43,8 +46,23 @@ protected $fillable=['name','length','url','thumbnail','slug','description','cat
      return $this->category?->name;
    }
 
+   public function user()
+   {
+       return $this->belongsTo(User::class);
+   }
 
 
+public function getOwnerNameAttribute()
+{
+  return $this->user?->name;
+}
+
+
+    public function getOwnerGravatarAttribute()
+    {
+        return $this->user?->gravatar;
+    }
 
 }
+
 

@@ -11,7 +11,7 @@
                 <i class="fa fa-edit"></i>
 
             </a>
-            <a class="channel-name" href="#">مهرداد سامی<span>
+            <a class="channel-name" href="#">{{$video->owner_name}}<span>
                                     <i class="fa fa-check-circle"></i></span></a>
             <a class="channel-name" href="#">
                 {{$video->category_name}}
